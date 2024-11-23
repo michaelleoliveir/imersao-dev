@@ -7,3 +7,9 @@ export async function getTodosPosts() {
     const colecao = db.collection("posts") //acessando a coleção
     return colecao.find().toArray(); //converte objetos em array
 }
+
+export async function criarPost(novoPost) {
+    const db = conexao.db("imersao-instabytes"); 
+    const colecao = db.collection("posts");
+    return colecao.insertOne(novoPost);
+}
